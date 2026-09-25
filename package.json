@@ -40,11 +40,11 @@
     "wait-on": "^7.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env PORT=3300 HOST=localhost react-scripts start",
     "build": "CI=false react-scripts build && npm run copy-electron-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 &&  cross-env ELECTRON_IS_DEV=true npm run electron\"",
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3300 &&  cross-env ELECTRON_IS_DEV=true npm run electron\"",
     "electron": "electron .",
     "copy-electron-files": "node scripts/copy-electron-files.js",
     "build-electron": "npm run build && electron-builder",
